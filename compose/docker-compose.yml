@@ -18,7 +18,7 @@ services:
         ipv4_address: 192.17.5.11
 
   etcd:
-    image: gcr.io/etcd-development/etcd:v3.3.12
+    image: gcr.io/qwertzxcvb/etcd:v3.3.12
     command: /usr/local/bin/etcd --advertise-client-urls http://0.0.0.0:2379 --listen-client-urls http://0.0.0.0:2379
     restart: always
     volumes:
