@@ -15,7 +15,7 @@ services:
       - "9443:9443/tcp"
     networks:
       apisix-dashboard:
-        ipv4_address: 192.17.5.11
+        ipv4_address: 172.26.20.28
 
   etcd:
     image: gcr.io/qwertzxcvb/etcd:v3.3.12
@@ -29,7 +29,7 @@ services:
       - "2379:2379/tcp"
     networks:
       apisix-dashboard:
-        ipv4_address: 192.17.5.10
+        ipv4_address: 172.26.20.28
 
   web1:
     image: ruby:2-alpine
@@ -39,7 +39,7 @@ services:
       - "9081:8000/tcp"
     networks:
       apisix-dashboard:
-        ipv4_address: 192.17.5.12
+        ipv4_address: 172.26.20.28
 
   web2:
     image: ruby:2-alpine
@@ -64,7 +64,7 @@ services:
       - ../api/script/db:/docker-entrypoint-initdb.d
     networks:
       apisix-dashboard:
-        ipv4_address: 192.17.5.14
+        ipv4_address: 172.26.20.28
 
   manager:
     build:
@@ -79,7 +79,7 @@ services:
       - ./manager_conf/build.sh:/root/manager-api/build.sh
     networks:
       apisix-dashboard:
-        ipv4_address: 192.17.5.15
+        ipv4_address: 172.26.20.28
 
   prometheus:
     image: prom/prometheus
@@ -91,7 +91,7 @@ services:
       - "9090:9090"
     networks:
       apisix-dashboard:
-        ipv4_address: 192.17.5.16
+        ipv4_address: 172.26.20.28
 
   grafana:
     image: grafana/grafana
@@ -106,7 +106,7 @@ services:
       - "./grafana_conf/config/grafana.ini:/etc/grafana/grafana.ini"
     networks:
       apisix-dashboard:
-        ipv4_address: 192.17.5.17
+        ipv4_address: 172.26.20.28
 
   dashboard:
     build:
@@ -121,4 +121,4 @@ networks:
     driver: bridge
     ipam:
       config:
-      - subnet: 192.17.0.0/16
+      - subnet: 172.26.0.0/16
